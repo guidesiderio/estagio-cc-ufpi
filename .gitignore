@@ -1,4 +1,28 @@
-.claude
+# Claude Code
+.claude/
 CLAUDE.md
-fonts/
+
+# Source docs (reference only, not served)
+docs/
+
+# Dependencies
 node_modules/
+
+# Playwright MCP
+.playwright-mcp/
+
+# Screenshots and temp images
+*.png
+*.jpg
+*.jpeg
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
