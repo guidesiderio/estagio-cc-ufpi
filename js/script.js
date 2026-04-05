@@ -36,58 +36,6 @@ if (navToggle && navMobile) {
   });
 }
 
-// ─── BUSCA ───────────────────────────────────────
-const buscaInput = document.getElementById("buscaInput");
-const semResultado = document.getElementById("semResultado");
-const termoBusca = document.getElementById("termoBusca");
-
-buscaInput.addEventListener("input", function () {
-  const q = this.value.trim().toLowerCase();
-  let algumVisivel = false;
-
-  document.querySelectorAll(".faq-item").forEach((item) => {
-    const texto = item.textContent.toLowerCase();
-    const visivel = !q || texto.includes(q);
-    item.style.display = visivel ? "" : "none";
-    if (visivel) algumVisivel = true;
-  });
-
-  // mostra/esconde grupos vazios
-  document.querySelectorAll(".faq-grupo").forEach((grupo) => {
-    const itensVisiveis = [...grupo.querySelectorAll(".faq-item")].some(
-      (i) => i.style.display !== "none"
-    );
-    grupo.style.display = itensVisiveis ? "" : "none";
-  });
-
-  semResultado.style.display = !algumVisivel && q ? "block" : "none";
-  if (!algumVisivel && q) termoBusca.textContent = this.value.trim();
-});
-
-// ─── SIDEBAR + PILLS ACTIVE STATE ────────────────
-const navLinks = document.querySelectorAll(".faq-nav-link");
-const pillLinks = document.querySelectorAll(".faq-pill");
-const grupos = document.querySelectorAll(".faq-grupo");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach((l) => l.classList.remove("active"));
-        pillLinks.forEach((l) => l.classList.remove("active"));
-        const sideLink = document.querySelector(`.faq-nav-link[href="#${id}"]`);
-        const pillLink = document.querySelector(`.faq-pill[href="#${id}"]`);
-        if (sideLink) sideLink.classList.add("active");
-        if (pillLink) pillLink.classList.add("active");
-      }
-    });
-  },
-  { rootMargin: "-20% 0px -60% 0px" }
-);
-
-grupos.forEach((g) => observer.observe(g));
-
 // ─── FADE IN ON SCROLL ───────────────────────────
 const fadeEls = document.querySelectorAll(".fade-in");
 const fadeObserver = new IntersectionObserver(
