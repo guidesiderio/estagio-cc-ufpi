@@ -13,7 +13,7 @@ function toggle(btn) {
   }
 }
 
-// ─── HAMBURGER ───────────────────────────────────
+// ─── HAMBURGER ───────────────────────────────
 const navToggle = document.querySelector(".nav-toggle");
 const navMobile = document.getElementById("navMobile");
 
@@ -36,7 +36,7 @@ if (navToggle && navMobile) {
   });
 }
 
-// ─── FADE IN ON SCROLL ───────────────────────────
+// ─── FADE IN ON SCROLL ───────────────────────
 const fadeEls = document.querySelectorAll(".fade-in");
 const fadeObserver = new IntersectionObserver(
   (entries) => {
@@ -51,3 +51,42 @@ const fadeObserver = new IntersectionObserver(
 );
 
 fadeEls.forEach((el) => fadeObserver.observe(el));
+
+// ─── ACTIVE NAV SECTION TRACKING ────────────
+(function () {
+  const sections = document.querySelectorAll("main section[id]");
+  const desktopNav = document.querySelector("header .header-inner nav");
+  const mobileNav = document.getElementById("navMobile");
+
+  if (!sections.length || !desktopNav) return;
+
+  function setActive(id) {
+    const allLinks = [
+      ...desktopNav.querySelectorAll("a"),
+      ...(mobileNav ? mobileNav.querySelectorAll("a") : []),
+    ];
+    allLinks.forEach((link) => {
+      if (link.getAttribute("href") === "#" + id) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    },
+    {
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
+    }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+})();
