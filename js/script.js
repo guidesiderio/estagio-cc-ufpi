@@ -90,3 +90,23 @@ fadeEls.forEach((el) => fadeObserver.observe(el));
 
   sections.forEach((section) => sectionObserver.observe(section));
 })();
+
+// ─── BACK TO TOP ────────────────────────────
+const backToTop = document.querySelector(".back-to-top");
+if (backToTop) {
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (window.scrollY > 600) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    },
+    { passive: true }
+  );
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
