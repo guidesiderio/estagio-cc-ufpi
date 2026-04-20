@@ -14,13 +14,12 @@ Open `index.html` directly in a browser — no server or build step required. To
 
 - **[index.html](index.html)** — HTML structure and content. Fonts loaded from Google Fonts (Manrope + Inter).
 - **[css/style.css](css/style.css)** — all styles: design tokens via CSS custom properties, responsive layout, tonal architecture.
-- **[js/script.js](js/script.js)** — accordion (FAQ), hamburger menu, scroll fade-in animations, active navigation section tracking (IntersectionObserver).
+- **[js/script.js](js/script.js)** — accordion (FAQ), hamburger menu, dark mode toggle, scroll fade-in animations, active navigation section tracking (IntersectionObserver).
 - **[assets/](assets/)** — static assets organized in subdirectories:
   - `assets/forms/` — downloadable form documents (.docx and .pdf)
-  - `assets/icons/` — SVG/icon assets
-  - `assets/img/` — screenshots and images
+  - `assets/img/` — images and icons
 - **[docs/DESIGN.md](docs/DESIGN.md)** — design system specification ("The Academic Luminary"). Defines colors, typography, elevation, components, and do's/don'ts. **Primary source of truth for visual design.**
-- **[docs/Estágio Supervisionado - Landing Page Brief.md](docs/Estágio%20Supervisionado%20-%20Landing%20Page%20Brief.md)** — authoritative briefing for the page. Defines the 10 sections, all copy, rules, and UI hints. **Primary source of truth for content and structure.**
+- **[SPEC.md](SPEC.md)** — spec de melhorias UI/UX aplicadas ao projeto.
 
 ## Design System
 
@@ -40,7 +39,7 @@ CSS custom properties are defined in `:root` at the top of `css/style.css`. Colo
 
 ## Content
 
-The page currently implements 9 of the 10 sections defined in the Brief:
+The page implements all 10 sections:
 
 1. **Hero** (`section.hero`) — title, subtitle, CTA buttons, highlight badge cards (300h, 1 semester min, no oral presentation, Apto/Inapto)
 2. **Objetivos** (`#objetivos`) — why the internship exists; displayed as icon cards
@@ -49,7 +48,7 @@ The page currently implements 9 of the 10 sections defined in the Brief:
 5. **Regras Importantes** (`#regras`) — rules on hours, duration, start date, etc.; displayed as cards
 6. **Obrigações do Aluno** (`#obrigacoes`) — student obligations; displayed as cards
 7. **Avaliação** (`#avaliacao`) — grading criteria, supervisor's role, Apto (10) / Inapto (0)
-8. ~~**Documentos Necessários**~~ — **not yet implemented** (defined in Brief as section 8: 5 required documents with download links)
+8. **Documentos** (`#documentos`) — formulários para download (convênio, TCE, cronograma); displayed as numbered cards
 9. **FAQ** (`#faq`) — Q&A pairs; displayed as accordion
 10. **Contato / Rodapé** (`#contato` + `<footer>`) — coordinator email, SIGAA link, CGE link, legal sources
 

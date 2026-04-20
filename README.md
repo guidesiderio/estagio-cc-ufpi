@@ -29,14 +29,13 @@ npx serve .
 ```
 ├── index.html              # Página principal
 ├── css/style.css           # Estilos e design tokens
-├── js/script.js            # Accordion, menu mobile, animações
+├── js/script.js            # Accordion, menu mobile, dark mode, animações
 ├── assets/
-│   ├── icons/              # Ícones SVG
-│   ├── img/                # Imagens
+│   ├── img/                # Imagens e ícones
 │   └── forms/              # Documentos para download
 ├── docs/
-│   ├── DESIGN.md           # Especificação do design system
-│   └── Estágio Supervisionado - Landing Page Brief.md
+│   └── DESIGN.md           # Especificação do design system
+├── SPEC.md                 # Spec de melhorias UI/UX
 ├── CLAUDE.md               # Instruções para Claude Code
 └── README.md
 ```
@@ -48,6 +47,7 @@ O design segue o sistema **"The Academic Luminary"** (documentado em `docs/DESIG
 - Arquitetura tonal (hierarquia de superfícies em vez de bordas)
 - Tipografia editorial (Manrope para títulos, Inter para corpo)
 - Glassmorfismo na navegação
+- Dark mode com toggle integrado na navbar
 - Elevação por camadas tonais, sem sombras tradicionais
 - Interações suaves com transições cubic-bezier
 
